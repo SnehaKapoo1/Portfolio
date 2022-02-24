@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/pages/about/about.dart';
-import 'package:portfolio/pages/contacts/contacts.dart';
-import 'package:portfolio/pages/home/homedesktop.dart';
 import 'package:portfolio/pages/mainsection.dart';
 
 void main() {
@@ -14,8 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(primaryColor: Colors.white),
-        home: const ContactPage());
+      //title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primaryColor: Colors.white),
+      home: const MainSection(),
+    );
   }
 }

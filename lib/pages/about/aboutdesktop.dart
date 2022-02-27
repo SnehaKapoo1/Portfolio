@@ -67,11 +67,11 @@ class AboutDesktop extends StatelessWidget {
                         height: height * 0.03,
                       ),
                       AdaptiveText(
-                        "I'm Sneha Kapoor, a Flutter developer, Technical blog writer and UI designer.",
+                        "I'm Sneha Kapoor, a Flutter developer , Java Developer and an Open source Contributor.",
                         style: GoogleFonts.montserrat(
                           fontSize: height * 0.035,
                           fontWeight: FontWeight.w400,
-                          color: Colors.blueGrey,
+                          color: Colors.blueGrey[800],
                           decoration: TextDecoration.none,
                         ),
                       ),
@@ -79,7 +79,7 @@ class AboutDesktop extends StatelessWidget {
                         height: height * 0.02,
                       ),
                       AdaptiveText(
-                        "I'm a Pre-Final Year Computer Science student enrolled in LPU University. I have been developing mobile apps for over 1.5 years now. I have worked in teams for various startups and helped them in launching their prototypes and got valuable learning experience. I'm an active Google Developer Student Clubs (DSC) lead and also CEO/Founder Flutter Islamabad, Pakistan.",
+                        "I am a Pre-Final year student of Bachelor’s Technology in Computer Science and Engineering at Lovely Professional University of punjab. I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between. I have worked also worked with various frameworks like Spring Boot, Servlet Engine, JSP etc.",
                         style: GoogleFonts.montserrat(
                           fontSize: height * 0.02,
                           color: Colors.black,

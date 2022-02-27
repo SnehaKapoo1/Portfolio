@@ -1,12 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/constants.dart';
-import 'package:portfolio/widget/technologywidget.dart';
+import 'package:portfolio/widget/adaptivetext.dart';
+import 'package:portfolio/widget/tooltechwidget.dart';
 
 class AboutDesktop extends StatelessWidget {
-  const AboutDesktop({Key? key}) : super(key: key);
+  //final _communityLogoHeight = [60.0, 70.0, 30.0];
 
   @override
   Widget build(BuildContext context) {
@@ -14,17 +14,21 @@ class AboutDesktop extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
 
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: width * 0.02),
+      padding: EdgeInsets.symmetric(
+        horizontal: width * 0.02,
+      ),
+      color: Colors.white,
       child: Column(
         children: [
           AutoSizeText(
             '\nAbout me!',
             style: GoogleFonts.montserrat(
-                fontWeight: FontWeight.w200,
-                fontSize: 50.0,
-                color: kBoldCaptionColor,
-                letterSpacing: 1.0,
-                decoration: TextDecoration.none),
+              fontWeight: FontWeight.w200,
+              fontSize: 50.0,
+              color: kBoldCaptionColor,
+              letterSpacing: 1.0,
+              decoration: TextDecoration.none,
+            ),
           ),
           AutoSizeText(
             'Get to know me :)',
@@ -35,9 +39,7 @@ class AboutDesktop extends StatelessWidget {
               decoration: TextDecoration.none,
             ),
           ),
-          const SizedBox(
-            height: 20.0,
-          ),
+          SizedBox(height: 30.0),
           Row(
             children: [
               Expanded(
@@ -47,100 +49,143 @@ class AboutDesktop extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: width < 1230 ? 3 : 2,
+                flex: width < 1230 ? 2 : 1,
                 child: Container(
                   padding: EdgeInsets.only(left: width < 1230 ? 25.0 : 0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AutoSizeText(
-                        'Who am I?',
+                      AdaptiveText(
+                        "Who am I?",
                         style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w500,
-                          fontSize: height * 0.035,
-                          color: Colors.black87,
+                          color: kButtonColor,
+                          fontSize: height * 0.025,
                           decoration: TextDecoration.none,
                         ),
                       ),
                       SizedBox(
                         height: height * 0.03,
                       ),
-                      AutoSizeText(
-                        'Hi There! I’m Sneha Kapoor, a flutter developer.',
+                      AdaptiveText(
+                        "I'm Sneha Kapoor, a Flutter developer, Technical blog writer and UI designer.",
                         style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w500,
-                          fontSize: height * 0.030,
-                          color: Colors.black87,
+                          fontSize: height * 0.035,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.blueGrey,
                           decoration: TextDecoration.none,
                         ),
                       ),
                       SizedBox(
-                        height: height * 0.01,
+                        height: height * 0.02,
                       ),
-                      AutoSizeText(
-                        'I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between.',
+                      AdaptiveText(
+                        "I'm a Pre-Final Year Computer Science student enrolled in LPU University. I have been developing mobile apps for over 1.5 years now. I have worked in teams for various startups and helped them in launching their prototypes and got valuable learning experience. I'm an active Google Developer Student Clubs (DSC) lead and also CEO/Founder Flutter Islamabad, Pakistan.",
                         style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w500,
                           fontSize: height * 0.02,
-                          color: kCaptionColor,
-                          decoration: TextDecoration.none,
-                        ),
-                      ),
-                      SizedBox(
-                        height: height * 0.01,
-                      ),
-                      AutoSizeText(
-                        'Shortly currently, I am pursuing my Bachelor’s Technology in Computer Science and Engineering at Lovely Professional University of punjab.',
-                        style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w500,
-                          fontSize: height * 0.02,
+                          color: Colors.black,
                           height: 2.0,
-                          color: kCaptionColor,
                           decoration: TextDecoration.none,
                         ),
                       ),
                       SizedBox(
                         height: height * 0.025,
                       ),
-                      AutoSizeText(
-                        'Technologies I have been working recently: ',
+                      Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom:
+                                BorderSide(color: Colors.black12, width: 2.0),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 0.02,
+                      ),
+                      AdaptiveText(
+                        "Technologies I have worked with:",
                         style: GoogleFonts.montserrat(
-                          fontWeight: FontWeight.w500,
-                          fontSize: height * 0.030,
-                          color: kBoldCaptionColor,
+                          color: kButtonColor,
+                          fontSize: height * 0.018,
                           decoration: TextDecoration.none,
                         ),
                       ),
                       Row(
                         children: [
-                          for (int i = 0; i < 3; i++)
-                            TechWidget(
-                              techName: kTechName[i],
+                          for (int i = 0; i < kTools.length; i++)
+                            ToolTechWidget(
+                              techName: kTools[i],
                             ),
                         ],
                       ),
-                      Row(
+                      /*SizedBox(
+                        height: height * 0.02,
+                      ),*/
+                      /* Container(
+                        decoration: const BoxDecoration(
+                          border: Border(
+                            bottom:
+                            BorderSide(color: Colors.white10, width: 2.0),
+                          ),
+                        ),
+                      ),*/
+                      /*SizedBox(
+                        height: height * 0.025,
+                      ),*/
+                      /*  Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          for (int i = 3; i < 6; i++)
-                            TechWidget(
-                              techName: kTechName[i],
-                            ),
+                          AboutMeMetaData(
+                            data: "Name",
+                            information: "Muhammad Hamza",
+                          ),
+                          AboutMeMetaData(
+                            data: "Email",
+                            information: "hamza.6.shakeel@gmail.com",
+                          ),
                         ],
-                      ),
-                      Row(
+                      ),*/
+                      /*SizedBox(
+                        height: height * 0.02,
+                      ),*/
+                      /* Row(
                         children: [
-                          for (int i = 6; i < kTechName.length; i++)
-                            TechWidget(
-                              techName: kTechName[i],
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: OutlinedCustomBtn(
+                              onPressed: () {
+                                html.window.open(
+                                    'https://drive.google.com/file/d/1GF-wtbu2ob_Uxhw2In2QA8QiYi3XjCj1/view?usp=sharing',
+                                    "pdf");
+                              },
+                              btnText: "Resume",
+                            ),
+                          ),
+                          Container(
+                            width: width * 0.05,
+                            decoration: BoxDecoration(
+                              border: Border(
+                                bottom: BorderSide(
+                                    color: Colors.grey[900], width: 2.0),
+                              ),
+                            ),
+                          ),
+                          for (int i = 0; i < kCommunityLogo.length; i++)
+                            CommunityIconBtn(
+                              icon: kCommunityLogo[i],
+                              link: kCommunityLinks[i],
+                              height: _communityLogoHeight[i],
                             ),
                         ],
-                      ),
+                      ),*/
                     ],
                   ),
                 ),
               ),
+              Container(
+                width: width < 1230 ? width * 0.05 : width * 0.1,
+              ),
             ],
-          ),
+          )
         ],
       ),
     );

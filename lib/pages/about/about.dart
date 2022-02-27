@@ -15,7 +15,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
         mobile: const AboutMobile(),
-      desktop: const AboutDesktop(),
+      desktop:  AboutDesktop(),
     );
   }
 }

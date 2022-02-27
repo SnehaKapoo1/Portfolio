@@ -1,34 +1,33 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/rendering.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/animations/arrowontop.dart';
 import 'package:portfolio/animations/entrancefader.dart';
 import 'package:portfolio/pages/project/projectpage.dart';
 import 'package:portfolio/utils/constants.dart';
+import 'package:portfolio/widget/navbarlogo.dart';
 import 'package:universal_html/html.dart' as html;
+import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'about/about.dart';
 import 'contacts/contact.dart';
 import 'home/home.dart';
 
-class MainSection extends StatefulWidget {
-  const MainSection({Key? key}) : super(key: key);
-
+class MainPage extends StatefulWidget {
   @override
-  _MainSectionState createState() => _MainSectionState();
+  _MainPageState createState() => _MainPageState();
 }
 
-class _MainSectionState extends State<MainSection> {
-  late bool isPressed = false;
-  late
+class _MainPageState extends State<MainPage> {
+  bool isPressed = false;
   bool _isScrollingDown = false;
   final ScrollController _scrollController = ScrollController();
 
   final List<String> _sectionsName = [
     "HOME",
     "ABOUT",
-    "SKILLS",
-    "PROJECTS",
+    "PROJECT",
     "CONTACT",
   ];
 
@@ -43,26 +42,15 @@ class _MainSectionState extends State<MainSection> {
 
   void _scroll(int i) {
     _scrollController.animateTo(
-      i == 0 ? 0.0
+      i == 0
+          ? 0.0
           : i == 1
-          ? MediaQuery
-          .of(context)
-          .size
-          .height * 1.05
+          ? MediaQuery.of(context).size.height * 1.05
           : i == 2
-          ? MediaQuery
-          .of(context)
-          .size
-          .height * 1.98
+          ? MediaQuery.of(context).size.height * 2.50
           : i == 3
-          ? MediaQuery
-          .of(context)
-          .size
-          .height * 2.9
-          : MediaQuery
-          .of(context)
-          .size
-          .height * 4,
+          ? MediaQuery.of(context).size.height * 2.9
+          : MediaQuery.of(context).size.height * 4,
       duration: const Duration(seconds: 1),
       curve: Curves.easeInOut,
     );
@@ -92,6 +80,7 @@ class _MainSectionState extends State<MainSection> {
           setState(() {});
         }
       }
+
       if (_scrollController.position.userScrollDirection ==
           ScrollDirection.forward) {
         if (_isScrollingDown) {
@@ -112,123 +101,170 @@ class _MainSectionState extends State<MainSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    //bool height = MediaQuery.of(context).size.width < 760;
+    var screenSize = MediaQuery.of(context).size;
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      backgroundColor: Colors.white,
+      appBar: PreferredSize(
+        preferredSize: Size(screenSize.width,screenSize.height),
+        child: screenSize.width < 760 ? AppBar(
+          iconTheme: const IconThemeData(
+              color: Colors.black),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          actions: [
+            NavBarLogo(),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.05,
+            )
+          ],
+        )
+            : _appBarTabDesktop()
+      ),
+
+        drawer: screenSize.width < 760
+            ? _appBarMobile()
+            : null,
+        body: Stack(
+          children: [
+            SectionsBody(
+              scrollController: _scrollController,
+              sectionsLength: _sectionsIcons.length,
+              sectionWidget: sectionWidget,
+            ),
+            _isScrollingDown
+                ? Positioned(
+                bottom: 90,
+                right: 0,
+                child: EntranceFader(
+                    offset: const Offset(0, 20),
+                    child: ArrowOnTop(
+                      onPressed: () => _scroll(0),
+                    )))
+                : Container()
+          ],
+        ),
+           //   : _appBarTabDesktop(),
+      );
+
   }
 
-  Widget _appBarActions(String childText, int index, IconData icon) {
-    return MediaQuery
-        .of(context)
-        .size
-        .width > 760
+  Widget _appBarActions(
+      String childText, int index, IconData icon) {
+    return MediaQuery.of(context).size.width > 760
         ? EntranceFader(
       offset: const Offset(0, -10),
       delay: const Duration(milliseconds: 100),
+      duration: const Duration(milliseconds: 250),
       child: Container(
         padding: const EdgeInsets.all(8.0),
-        height: 60,
+        height: 60.0,
         child: MaterialButton(
-          hoverColor: kBoldCaptionColor,
+          hoverColor: kButtonColor,
           onPressed: () => _scroll(index),
           child: Text(
-              childText,
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold
-              )
+            childText,
+            style: const TextStyle(
+              color:
+           Colors.black,
+            ),
           ),
         ),
       ),
     )
         : Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: MaterialButton(
-          hoverColor: kButtonColor.withAlpha(70),
-          onPressed: () {
-            _scroll(index);
-            Navigator.pop(context);
-          },
-          child: ListTile(
-            leading: Icon(
-              icon,
-              color: kButtonColor,
-            ),
-            title: Text(
-              childText,
-              style: const TextStyle(
-                color: Colors.blueGrey,
-              ),
-            ),
+      padding: const EdgeInsets.all(8.0),
+      child: MaterialButton(
+        hoverColor: kButtonColor.withAlpha(70),
+        onPressed: () {
+          _scroll(index);
+          Navigator.pop(context);
+        },
+        child: ListTile(
+          leading: Icon(
+            icon,
+            color: kButtonColor,
           ),
-        )
+          title: Text(childText,
+              style: const TextStyle(
+                color:
+                     Colors.black
+              )),
+        ),
+      ),
     );
   }
 
-  Widget _appBarDesktop() {
+  Widget _appBarTabDesktop() {
     return AppBar(
       elevation: 0.0,
-      backgroundColor: Colors.white,
-      title: MediaQuery
-          .of(context)
-          .size
-          .width < 780
+      backgroundColor: Colors.blueGrey,
+      title: MediaQuery.of(context).size.width < 780
           ? EntranceFader(
-        duration: const Duration(milliseconds: 250),
-        offset: const Offset(0, -10),
-        delay: const Duration(seconds: 3),
-        child: AutoSizeText(
-          "Portfolio",
-          style: GoogleFonts.pacifico(
-            color: Colors.black,
-            fontSize: 20.0,
-          ),
-        ),
-      )
+          duration: const Duration(milliseconds: 250),
+          offset: const Offset(0, -10),
+          delay: const Duration(seconds: 3),
+          child: NavBarLogo(
+            height: 20.0,
+          ))
           : EntranceFader(
         offset: const Offset(0, -10),
         duration: const Duration(milliseconds: 250),
         delay: const Duration(milliseconds: 100),
-        child: AutoSizeText(
-          "Portfolio",
-          style: GoogleFonts.pacifico(
-            color: Colors.black,
-            fontSize: MediaQuery.of(context).size.height * 0.035,
-          ),
+        child: NavBarLogo(
+          height: MediaQuery.of(context).size.height * 0.035,
         ),
       ),
       actions: [
-        for(int i=0; i <_sectionsName.length; i++)
-          _appBarActions(_sectionsName[i], i, _sectionsIcons[i]),
+        for (int i = 0; i < _sectionsName.length; i++)
+          _appBarActions(_sectionsName[i], i, _sectionsIcons[i],),
         EntranceFader(
-          offset: Offset(0, -10),
-            delay: Duration(milliseconds: 100),
-            duration: Duration(milliseconds: 250),
-            child: Container(
-              height: 60,
-              width: 120,
-              padding: const EdgeInsets.all(8.0),
-              child: MaterialButton(
-                hoverColor: kButtonColor,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0),
-                    side:  BorderSide(color: kButtonColor.withAlpha(150))),
-                onPressed: () {
-                  html.window.open("null", "pdf");
-                },
-                child: Text(
-                  "RESUME",
-                  style: GoogleFonts.montserrat(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w300,
-                  ),
+          offset: const Offset(0, -10),
+          delay: const Duration(milliseconds: 100),
+          duration: const Duration(milliseconds: 250),
+          child: Container(
+            height: 60.0,
+            width: 120.0,
+            padding: const EdgeInsets.all(8.0),
+            child: MaterialButton(
+              hoverColor: kButtonColor.withAlpha(150),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                  side: const BorderSide(color: kButtonColor)),
+              onPressed: () {
+                html.window.open(
+                    'https://drive.google.com/file/d/1GF-wtbu2ob_Uxhw2In2QA8QiYi3XjCj1/view?usp=sharing',
+                    "pdf");
+              },
+              child: Text(
+                "RESUME",
+                style: GoogleFonts.montserrat(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w300,
                 ),
-              )
-            )
+              ),
+            ),
+          ),
         ),
+        const SizedBox(width: 15.0),
+        // SizedBox(
+        //   height: 30.0,
+        //   child: Switch(
+        //     inactiveTrackColor: Colors.grey,
+        //     value: !_themeProv.lightTheme,
+        //     onChanged: (value) {
+        //       _themeProv.lightTheme = !value;
+        //     },
+        //     activeColor: kButtonColor,
+        //   ),
+        // ),
+        //const SizedBox(width: 15.0),
       ],
     );
   }
 
-  Widget _appBarMobile(){
+  Widget _appBarMobile() {
     return Drawer(
       child: Material(
         color: kButtonColor,
@@ -238,40 +274,61 @@ class _MainSectionState extends State<MainSection> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: AutoSizeText(
-                  "Portfolio",
-                  style: GoogleFonts.pacifico(
-                    color: Colors.black,
-                    fontSize: 28.0,
-                  ),
+                child: NavBarLogo(
+                  height: 28,
                 ),
               ),
-              const Divider(color: Colors.blueGrey),
-              for(int i=0; i < _sectionsName.length; i++)
+              const Divider(
+                color: Colors.blueGrey,
+              ),
+              const ListTile(
+                leading: Icon(
+                  Icons.light_mode,
+                  color: kButtonColor,
+                ),
+               /* title: Text("Dark Mode",
+                    style: TextStyle(
+                        color: theme.lightTheme ? Colors.black : Colors.white)),
+                trailing: Switch(
+                  inactiveTrackColor: Colors.grey,
+                  value: !theme.lightTheme,
+                  onChanged: (value) {
+                    theme.lightTheme = !value;
+                  },
+                  activeColor: kButtonColor,
+                ),*/
+              ),
+              /*Divider(
+                color: theme.lightTheme ? Colors.grey[200] : Colors.white,
+              ),*/
+              for (int i = 0; i < _sectionsName.length; i++)
                 _appBarActions(_sectionsName[i], i, _sectionsIcons[i]),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: MaterialButton(
-                  hoverColor: kButtonColor,
+                  hoverColor: kButtonColor.withAlpha(150),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5.0),
                       side: const BorderSide(color: kButtonColor)),
-                  onPressed: () {  },
+                  onPressed: () {
+                    // launchURL(
+                    //     "https://drive.google.com/file/d/1GF-wtbu2ob_Uxhw2In2QA8QiYi3XjCj1/view?usp=sharing");
+                  },
                   child: ListTile(
                     leading: const Icon(
                       Icons.book,
-                      color: kButtonColor,
+                      color: Colors.red,
                     ),
                     title: Text(
                       "RESUME",
                       style: GoogleFonts.montserrat(
                         fontWeight: FontWeight.w300,
-                        color: kBoldCaptionColor,
-                      )
+                        color: Colors.black,
+                      ),
                     ),
                   ),
-                )
-              )
+                ),
+              ),
             ],
           ),
         ),
@@ -282,11 +339,11 @@ class _MainSectionState extends State<MainSection> {
 
 class SectionsBody extends StatelessWidget {
   final ScrollController scrollController;
-  final int sectionsLength;
+  final int ?sectionsLength;
   final Widget Function(int) sectionWidget;
 
   const SectionsBody({
-    required Key key,
+    Key? key,
     required this.scrollController,
     required this.sectionsLength,
     required this.sectionWidget,
@@ -297,7 +354,6 @@ class SectionsBody extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
-        // physics: !kIsWeb ? ScrollPhysics() : NeverScrollableScrollPhysics(),
         controller: scrollController,
         itemCount: sectionsLength,
         itemBuilder: (context, index) => sectionWidget(index),

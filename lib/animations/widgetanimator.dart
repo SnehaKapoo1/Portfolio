@@ -55,7 +55,7 @@ class _AnimatorState extends State<Animator>
 }
 
 late Timer timer;
-Duration duration = Duration();
+Duration duration = const Duration();
 
 wait() {
 

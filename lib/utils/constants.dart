@@ -84,3 +84,14 @@ final kProjectsLinks =[
 "https://github.com/SnehaKapoo1/BMI-Calculator-Flutter",
   "https://github.com/SnehaKapoo1/BMI-Calculator-Flutter"
 ];
+
+final kTools = [
+  "Flutter",
+  "Dart",
+  "Python",
+  "Java",
+  "C++",
+  "HTML",
+  "CSS",
+  "Bootstrap"
+];

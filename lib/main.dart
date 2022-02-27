@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/pages/about/aboutdesktop.dart';
-import 'package:portfolio/pages/mainsection.dart';
+import 'package:portfolio/pages/mainpage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       //title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.white),
-      home: AboutDesktop(),
+      home: MainSection(),
     );
   }
 }

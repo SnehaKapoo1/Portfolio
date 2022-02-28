@@ -90,8 +90,8 @@ final kTools = [
   "Dart",
   "Python",
   "Java",
-  "C++",
+  "DBMS",
+  "Mongo DB",
   "HTML",
   "CSS",
-  "Bootstrap"
 ];

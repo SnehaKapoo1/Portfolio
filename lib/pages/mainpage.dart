@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/project/projectpage.dart';
+import 'package:portfolio/utils/constants.dart';
 import 'about/about.dart';
 import 'contacts/contact.dart';
 import 'home/home.dart';
+
 class MainSection extends StatelessWidget {
    MainSection({Key? key}) : super(key: key);
   final List<String> _sectionsName = [
@@ -21,7 +23,8 @@ class MainSection extends StatelessWidget {
        return const ProjectPage();
      } else if (i == 3) {
        return const ContactPage();
-     } else {
+     }
+     else {
        return Container();
      }
    }
@@ -29,7 +32,17 @@ class MainSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
+        actions: [
+          Text("HOME", style: TextStyle(
+            color: kBoldCaptionColor
+          ),)
+        ],
+
+      ),
       body: ListView.builder(
+          shrinkWrap: false,
         itemCount: _sectionsName.length,
           itemBuilder: (BuildContext context, int index){
             return sectionWidget(index);
@@ -38,3 +51,7 @@ class MainSection extends StatelessWidget {
     );
   }
 }
+/*
+Widget appBarItem(){
+  Widget? Text;
+}*/

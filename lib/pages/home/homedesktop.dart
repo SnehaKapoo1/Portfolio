@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/animations/entrancefader.dart';
@@ -8,6 +9,8 @@ import 'package:portfolio/widget/socialmedia.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeDesktop extends StatelessWidget {
+  const HomeDesktop({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -16,6 +19,7 @@ class HomeDesktop extends StatelessWidget {
     return Container(
       height: height - 50,
       width: width,
+      color: Colors.white,
       child: Stack(
         children: [
           Positioned(
@@ -24,9 +28,9 @@ class HomeDesktop extends StatelessWidget {
             child: Opacity(
               opacity: 0.9,
               child: EntranceFader(
-                offset: Offset(0, 0),
-                delay: Duration(seconds: 1),
-                duration: Duration(milliseconds: 800),
+                offset: const Offset(0, 0),
+                delay: const Duration(seconds: 1),
+                duration: const Duration(milliseconds: 800),
                 child: Image.asset(
                   'images/rembg.png',
                   height: width < 1200 ? height * 0.8 : height * 0.85,
@@ -43,18 +47,19 @@ class HomeDesktop extends StatelessWidget {
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    AdaptiveText(
-                      "WELCOME TO MY PORTFOLIO! ",
-                      style: GoogleFonts.montserrat(
-                        fontSize: height * 0.03,
-                        fontWeight: FontWeight.w300,
-                        color: Colors.black, decoration: TextDecoration.none
+                    AutoSizeText(
+                      'WELCOME TO MY PORTFOLIO! ',
+                      style: TextStyle(
+                        fontSize: height * 0.05,
+                        fontWeight: FontWeight.bold,
+                        color: kBoldCaptionColor,
+                        decoration: TextDecoration.none,
                       ),
                     ),
                     EntranceFader(
-                      offset: Offset(0, 0),
-                      delay: Duration(seconds: 2),
-                      duration: Duration(milliseconds: 800),
+                      offset: const Offset(0, 0),
+                      delay: const Duration(seconds: 2),
+                      duration: const Duration(milliseconds: 800),
                       child: Image.asset(
                         "assets/hi.gif",
                         height: height * 0.05,
@@ -65,26 +70,19 @@ class HomeDesktop extends StatelessWidget {
                 SizedBox(
                   height: height * 0.04,
                 ),
-                AdaptiveText(
+                AutoSizeText(
                   "Sneha Kapoor",
-                  style: GoogleFonts.montserrat(
-                      fontSize: width < 1200 ? height * 0.085 : height * 0.095,
-                      fontWeight: FontWeight.w100,
-                      color: Colors.black,
-                      letterSpacing: 4.0,
-                      decoration: TextDecoration.none
+                  style: TextStyle(
+                    fontSize:
+                    width < 1200 ? height * 0.080 : height * 0.090,
+                    fontWeight: FontWeight.w100,
+                    color: kButtonColor,
+                    decoration: TextDecoration.none,
                   ),
                 ),
-               /* AdaptiveText(
-                  "Hamza",
-                  style: GoogleFonts.montserrat(
-                      color: _themeProvider.lightTheme
-                          ? Colors.black
-                          : Colors.white,
-                      fontSize: width < 1200 ? height * 0.085 : height * 0.095,
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: 5.0),
-                ),*/
+                SizedBox(
+                  height: height * 0.04,
+                ),
                 EntranceFader(
                   offset: const Offset(-10, 0),
                   delay: const Duration(seconds: 1),

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:portfolio/pages/home/homedesktop.dart';
 import 'package:portfolio/pages/home/homemobile.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -14,8 +15,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
-      mobile: HomeMobile(),
-      desktop: HomeDesktop(),
-    );
+        mobile: HomeMobile(),
+        desktop: HomeDesktop(),
+      );
   }
 }
+

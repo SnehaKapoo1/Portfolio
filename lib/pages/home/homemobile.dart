@@ -17,112 +17,6 @@ class HomeMobile extends StatelessWidget {
 
     return Scaffold(
       key: _scaffold,
-      /*appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
-        leading: IconButton(
-          onPressed: () => _scaffold.currentState!.openDrawer(),
-          icon: const Icon(Icons.menu, color: kBoldCaptionColor),
-        ),
-        actions: [
-          Center(
-            child: AutoSizeText(
-              'Portfolio  ',
-              style: GoogleFonts.pacifico(
-                color: kBoldCaptionColor,
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ],
-      ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 150.0,
-              child: DrawerHeader(
-                decoration: const BoxDecoration(
-                  color: Colors.blueGrey,
-                ),
-                child: Center(
-                  child: Text(
-                    '<Portfolio/>',
-                    style: GoogleFonts.pacifico(
-                        color: Colors.black, fontSize: 30.0),
-                  ),
-                ),
-              ),
-            ),
-            const ListTile(
-              leading: Icon(
-                Icons.home,
-                color: kMobileRedColor,
-              ),
-              title: Text(
-                'HOME',
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const ListTile(
-              leading: Icon(
-                Icons.person,
-                color: kMobileRedColor,
-              ),
-              title: Text(
-                'ABOUT',
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const ListTile(
-              leading: Icon(
-                Icons.grading_outlined,
-                color: kMobileRedColor,
-              ),
-              title: Text(
-                'SKILLS',
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const ListTile(
-              leading: Icon(
-                Icons.build,
-                color: kMobileRedColor,
-              ),
-              title: Text(
-                'PROJECT',
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const ListTile(
-              leading: Icon(
-                Icons.contact_page_outlined,
-                color: kMobileRedColor,
-              ),
-              title: Text(
-                'CONTACT',
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-            ),
-            const ListTile(
-              leading: Icon(
-                Icons.book_outlined,
-                color: kMobileRedColor,
-              ),
-              title: Text(
-                'RESUME',
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        ),
-      ),*/
       body: Stack(
         children: [
           Positioned(
@@ -132,13 +26,13 @@ class HomeMobile extends StatelessWidget {
               opacity: 0.9,
               child: Image.asset(
                 'images/rembg.png',
-                height: height * 0.50,
+                height: height * 0.63,
               ),
             ),
           ),
           Container(
               margin:
-              EdgeInsets.fromLTRB(width * 0.07, height * 0.10, 0, 0),
+              EdgeInsets.fromLTRB(width * 0.07, height * 0.12, 0, 0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/project/projectpage.dart';
 import 'package:portfolio/utils/constants.dart';
+import 'package:portfolio/widget/desktopappbar.dart';
 import 'about/about.dart';
 import 'contacts/contact.dart';
 import 'home/home.dart';
@@ -32,15 +33,6 @@ class MainSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blueGrey,
-        actions: [
-          Text("HOME", style: TextStyle(
-            color: kBoldCaptionColor
-          ),)
-        ],
-
-      ),
       body: ListView.builder(
           shrinkWrap: false,
         itemCount: _sectionsName.length,

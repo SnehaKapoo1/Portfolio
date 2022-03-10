@@ -3,6 +3,7 @@ import 'package:portfolio/pages/home/home.dart';
 import 'package:portfolio/pages/home/homedesktop.dart';
 import 'package:portfolio/pages/mainpage.dart';
 import 'package:portfolio/pages/pageview.dart';
+import 'package:portfolio/pages/scrolling.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       //title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.white),
-      home: const PageViewExample(),
+      home: const ScrollSection(),
     );
   }
 }

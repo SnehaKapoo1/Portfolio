@@ -38,10 +38,10 @@ class HomeMobile extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Text(
+                      Text(
                         'HEY THERE!',
                         style: TextStyle(
-                            color: kBoldCaptionColor, fontSize: 25.0),
+                            color: kBoldCaptionColor, fontSize: height * 0.025),
                       ),
                       Image.asset(
                         "assets/hi.gif",
@@ -60,7 +60,7 @@ class HomeMobile extends StatelessWidget {
                         fontSize: 35.0),
                   ),
                   SizedBox(
-                    height: height * 0.03,
+                    height: height * 0.02,
                   ),
                   EntranceFader(
                     offset: const Offset(-10, 0),
@@ -85,6 +85,16 @@ class HomeMobile extends StatelessWidget {
                               ),
                               speed: const Duration(milliseconds: 100),
                             ),
+                            /*TypewriterAnimatedText(
+                              'Java Developer',
+                              textStyle: const TextStyle(
+                                fontSize: 30.0,
+                                fontWeight: FontWeight.bold,
+                                color: kBoldCaptionColor,
+                                decoration: TextDecoration.none,
+                              ),
+                              speed: const Duration(milliseconds: 100),
+                            ),*/
                           ],
                           totalRepeatCount: 4,
                           pause: const Duration(milliseconds: 3000),

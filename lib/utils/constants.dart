@@ -74,7 +74,7 @@ final kProjectTitles =[
 ];
 
 final kProjectDescription=[
-  "An application to fetch and show the weather of any particular city or as per you current location. The application is build using Flutter & Dart Language.",
+  "A Flutter application to fetch and show the weather of any particular city or as per you current location.",
   "The Body Mass Index (BMI) Calculator application measures the weight status of your body in relation to the fat.",
   "The Body Mass Index (BMI) Calculator application measures the weight status of your body in relation to the fat."
 ];

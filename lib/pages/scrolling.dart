@@ -81,6 +81,8 @@ class _ScrollSectionState extends State<ScrollSection> {
           ? MediaQuery.of(context).size.height * 1.05
           : i == 2
           ? MediaQuery.of(context).size.height * 1.98
+          :  i == 3
+          ? MediaQuery.of(context).size.height * 2.9
           : MediaQuery.of(context).size.height * 4,
       duration: const Duration(seconds: 1),
       curve: Curves.easeInOut,

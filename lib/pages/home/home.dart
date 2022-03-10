@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:portfolio/pages/home/homedesktop.dart';
 import 'package:portfolio/pages/home/homemobile.dart';
+import 'package:portfolio/pages/home/hometab.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,7 +17,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
         mobile: HomeMobile(),
-        desktop: HomeDesktop(),
+        tablet: const HomeTab(),
+        desktop: const HomeDesktop(),
       );
   }
 }

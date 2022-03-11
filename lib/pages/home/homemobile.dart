@@ -15,9 +15,10 @@ class HomeMobile extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
 
-    return Scaffold(
-      key: _scaffold,
-      body: Stack(
+    return Container(
+      height: height,
+      width: width,
+      child: Stack(
         children: [
           Positioned(
             bottom: 0.0,
@@ -26,7 +27,7 @@ class HomeMobile extends StatelessWidget {
               opacity: 0.9,
               child: Image.asset(
                 'images/rembg.png',
-                height: height * 0.63,
+                height: height * 0.65,
               ),
             ),
           ),
@@ -45,22 +46,22 @@ class HomeMobile extends StatelessWidget {
                       ),
                       Image.asset(
                         "assets/hi.gif",
-                        height: height * 0.035,
+                        height: height * 0.03,
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: height * 0.03,
+                    height: height * 0.01,
                   ),
-                  const Text(
+                  Text(
                     'Sneha Kapoor',
                     style: TextStyle(
                         color: kButtonColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 35.0),
+                        fontWeight: FontWeight.w500,
+                        fontSize: height * 0.055),
                   ),
                   SizedBox(
-                    height: height * 0.02,
+                    height: height * 0.01,
                   ),
                   EntranceFader(
                     offset: const Offset(-10, 0),

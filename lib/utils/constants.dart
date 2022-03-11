@@ -28,15 +28,6 @@ const kTechLogo = [
   'images/fluttersmall.png',
 ];
 
-/*'images/dart.png',
-'images/firebase.png',
-'images/python.png',
-'images/java.png',
-'images/DBMS.png',
-'images/mysql.jpg',
-'images/sql.png',
-'images/os.png',*/
-
 final kContactIcons = [
   Icons.home,
   Icons.phone,
@@ -76,7 +67,7 @@ final kProjectTitles =[
 final kProjectDescription=[
   "A Flutter application to fetch and show the weather of any particular city or as per you current location.",
   "The Body Mass Index (BMI) Calculator application measures the weight status of your body in relation to the fat.",
-  "The Body Mass Index (BMI) Calculator application measures the weight status of your body in relation to the fat."
+  "An android app which will let you know how much you run or walk and from that walk how much you burn your calories."
 ];
 
 final kProjectsLinks =[

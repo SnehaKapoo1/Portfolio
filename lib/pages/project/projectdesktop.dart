@@ -14,8 +14,10 @@ class ProjectDesktop extends StatefulWidget {
 }
 
 class _ProjectDesktopState extends State<ProjectDesktop> {
+
   @override
   Widget build(BuildContext context) {
+
     double height = MediaQuery
         .of(context)
         .size
@@ -74,7 +76,16 @@ class _ProjectDesktopState extends State<ProjectDesktop> {
               },
               itemCount: 3,
             ),
-          )
+          ),
+          SizedBox(
+            height: height * 0.02,
+          ),
+         /* OutlinedButton(
+            onPressed: () {
+
+            },
+            child: const Text("See more", style: TextStyle(color: kButtonColor, fontWeight: FontWeight.bold),),
+          )*/
         ],
       ),
     );

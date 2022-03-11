@@ -106,7 +106,7 @@ class HomeMobile extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: height * 0.03,
+                    height: height * 0.02,
                   ),
                   Row(
                     children: socialMediaList

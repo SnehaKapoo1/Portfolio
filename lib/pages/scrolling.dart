@@ -42,8 +42,7 @@ class _ScrollSectionState extends State<ScrollSection> {
       return const ContactPage();
     } else if (i == 4) {
       return const Footer();
-    }
-    else {
+    } else {
       return Container();
     }
   }
@@ -77,7 +76,6 @@ class _ScrollSectionState extends State<ScrollSection> {
     });
     super.initState();
   }
-
 
   @override
   void dispose() {
@@ -164,9 +162,11 @@ class _ScrollSectionState extends State<ScrollSection> {
               child: MaterialButton(
                 hoverColor: kButtonColor,
                 onPressed: () => _scroll(index),
-                child: Text(childText,
-                    style: const TextStyle(
-                        color: kBoldCaptionColor, fontWeight: FontWeight.bold)),
+                child: Text(
+                  childText,
+                  style: const TextStyle(
+                      color: kBoldCaptionColor, fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           )
@@ -196,7 +196,7 @@ class _ScrollSectionState extends State<ScrollSection> {
   Widget _appBarDesktop() {
     return AppBar(
       elevation: 0.0,
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: kGreyBackground,
       title: MediaQuery.of(context).size.width < 780
           ? EntranceFader(
               duration: const Duration(milliseconds: 250),
@@ -239,7 +239,9 @@ class _ScrollSectionState extends State<ScrollSection> {
                       borderRadius: BorderRadius.circular(5.0),
                       side: BorderSide(color: kButtonColor.withAlpha(150))),
                   onPressed: () {
-                    html.window.open("https://drive.google.com/file/d/1ErA9nKDOSu1FcjxvYgI9CzksdX1NqZGC/view?usp=sharing", "pdf");
+                    html.window.open(
+                        "https://drive.google.com/file/d/1ErA9nKDOSu1FcjxvYgI9CzksdX1NqZGC/view?usp=sharing",
+                        "pdf");
                   },
                   child: Text(
                     "RESUME",
@@ -256,21 +258,21 @@ class _ScrollSectionState extends State<ScrollSection> {
   Widget _appBarMobile() {
     return Drawer(
       child: Material(
-        color: Colors.blueGrey,
+        color: kGreyBackground,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 25.0, 0, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-                   Center(
-                    child: AutoSizeText(
-                      "SK-Portfolio",
-                      style: GoogleFonts.pacifico(
-                        color: Colors.black,
-                        fontSize: 20.0,
-                      ),
-                    ),
+              Center(
+                child: AutoSizeText(
+                  "SK-Portfolio",
+                  style: GoogleFonts.pacifico(
+                    color: Colors.black,
+                    fontSize: 20.0,
                   ),
+                ),
+              ),
               const Divider(color: kButtonColor),
               for (int i = 0; i < _sectionsName.length; i++)
                 _appBarActions(_sectionsName[i], i, _sectionsIcons[i]),
@@ -282,7 +284,8 @@ class _ScrollSectionState extends State<ScrollSection> {
                         borderRadius: BorderRadius.circular(5.0),
                         side: const BorderSide(color: kButtonColor)),
                     onPressed: () {
-                      launchURL("https://drive.google.com/file/d/1ErA9nKDOSu1FcjxvYgI9CzksdX1NqZGC/view?usp=sharing");
+                      launchURL(
+                          "https://drive.google.com/file/d/1ErA9nKDOSu1FcjxvYgI9CzksdX1NqZGC/view?usp=sharing");
                     },
                     child: ListTile(
                       leading: const Icon(
@@ -304,7 +307,6 @@ class _ScrollSectionState extends State<ScrollSection> {
       ),
     );
   }
-
 }
 
 class SectionsBody extends StatelessWidget {

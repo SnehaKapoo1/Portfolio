@@ -20,137 +20,6 @@ class HomeDesktop extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return
-      /*appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0.0,
-        title: MediaQuery.of(context).size.width < 780
-            ? EntranceFader(
-                duration: const Duration(milliseconds: 250),
-                offset: const Offset(0, -10),
-                delay: const Duration(seconds: 3),
-                child: AutoSizeText(
-                  "Portfolio",
-                  style: GoogleFonts.pacifico(
-                    color: Colors.black,
-                    fontSize: 20.0,
-                  ),
-                ),
-              )
-            : EntranceFader(
-                offset: const Offset(0, -10),
-                duration: const Duration(milliseconds: 250),
-                delay: const Duration(milliseconds: 100),
-                child: AutoSizeText(
-                  "Portfolio",
-                  style: GoogleFonts.pacifico(
-                    color: Colors.black,
-                    fontSize: MediaQuery.of(context).size.height * 0.035,
-                  ),
-                ),
-              ),
-        actions: [
-          Container(
-            height: 60,
-            width: 100,
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const HomePage()),
-                );
-              },
-              hoverColor: kButtonColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              child: const Text(
-                "HOME",
-                style: TextStyle(color: kBoldCaptionColor),
-              ),
-            ),
-          ),
-          Container(
-            height: 60,
-            width: 100,
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AboutPage()),
-                );
-              },
-              hoverColor: kButtonColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              child: const Text(
-                "ABOUT",
-                style: TextStyle(color: kBoldCaptionColor),
-              ),
-            ),
-          ),
-          Container(
-            height: 60,
-            width: 100,
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ProjectPage()),
-                );
-              },
-              hoverColor: kButtonColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              child: const Text(
-                "PROJECT",
-                style: TextStyle(color: kBoldCaptionColor),
-              ),
-            ),
-          ),
-          Container(
-            height: 60,
-            width: 100,
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ContactPage()),
-                );
-              },
-              hoverColor: kButtonColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              child: const Text(
-                "CONTACT",
-                style: TextStyle(color: kBoldCaptionColor),
-              ),
-            ),
-          ),
-          Container(
-            height: 60,
-            width: 100,
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialButton(
-              onPressed: () {},
-              hoverColor: kButtonColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0),
-              ),
-              child: const Text(
-                "HOME",
-                style: TextStyle(color: kBoldCaptionColor),
-              ),
-            ),
-          ),
-        ],
-      ),*/
       Container(
         height: height - 50,
         width: width,
@@ -249,7 +118,7 @@ class HomeDesktop extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: height * 0.05,
+                    height: height * 0.03,
                   ),
                   Row(
                     children: socialMediaList
@@ -280,33 +149,3 @@ class HomeDesktop extends StatelessWidget {
   }
 }
 
-class AppBarItems extends StatelessWidget {
-  final String text;
-  Function? func;
-   AppBarItems({
-    Key? key, required this.text,
-     this.func
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      width: 100,
-      padding: const EdgeInsets.all(8.0),
-      child: MaterialButton(
-        onPressed: () async {
-          func;
-        },
-        hoverColor: kButtonColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-        child:  Text(
-          text,
-          style: const TextStyle(color: kBoldCaptionColor),
-        ),
-      ),
-    );
-  }
-}

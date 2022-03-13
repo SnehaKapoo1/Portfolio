@@ -6,7 +6,7 @@ import 'package:portfolio/widget/adaptivetext.dart';
 import 'package:portfolio/widget/tooltechwidget.dart';
 
 class AboutDesktop extends StatelessWidget {
-  //final _communityLogoHeight = [60.0, 70.0, 30.0];
+  const AboutDesktop({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,23 +23,22 @@ class AboutDesktop extends StatelessWidget {
           AutoSizeText(
             '\nAbout me!',
             style: GoogleFonts.montserrat(
-              fontWeight: FontWeight.w200,
-              fontSize: 50.0,
-              color: kBoldCaptionColor,
-              letterSpacing: 1.0,
-              decoration: TextDecoration.none,
-            ),
+                fontWeight: FontWeight.w400,
+                fontSize: 50.0,
+                color: kBoldCaptionColor,
+                letterSpacing: 1.0,
+                decoration: TextDecoration.none),
           ),
           AutoSizeText(
             'Get to know me :)',
             style: GoogleFonts.montserrat(
-              fontWeight: FontWeight.w100,
-              fontSize: 30.0,
+              fontWeight: FontWeight.w200,
+              fontSize: 10.0,
               color: Colors.black87,
               decoration: TextDecoration.none,
             ),
           ),
-          SizedBox(height: 30.0),
+          const SizedBox(height: 30.0),
           Row(
             children: [
               Expanded(

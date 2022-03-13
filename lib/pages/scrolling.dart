@@ -4,9 +4,10 @@ import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/animations/arrowontop.dart';
 import 'package:portfolio/animations/entrancefader.dart';
+import 'package:portfolio/pages/footer/footer.dart';
 import 'package:portfolio/pages/project/projectpage.dart';
 import 'package:portfolio/utils/constants.dart';
-
+import 'package:universal_html/html.dart' as html;
 import 'about/about.dart';
 import 'contacts/contact.dart';
 import 'home/home.dart';
@@ -39,7 +40,10 @@ class _ScrollSectionState extends State<ScrollSection> {
       return const ProjectPage();
     } else if (i == 3) {
       return const ContactPage();
-    } else {
+    } else if (i == 4) {
+      return const Footer();
+    }
+    else {
       return Container();
     }
   }
@@ -235,7 +239,7 @@ class _ScrollSectionState extends State<ScrollSection> {
                       borderRadius: BorderRadius.circular(5.0),
                       side: BorderSide(color: kButtonColor.withAlpha(150))),
                   onPressed: () {
-                    //html.window.open("null", "pdf");
+                    html.window.open("https://drive.google.com/file/d/1ErA9nKDOSu1FcjxvYgI9CzksdX1NqZGC/view?usp=sharing", "pdf");
                   },
                   child: Text(
                     "RESUME",
@@ -277,7 +281,9 @@ class _ScrollSectionState extends State<ScrollSection> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),
                         side: const BorderSide(color: kButtonColor)),
-                    onPressed: () {},
+                    onPressed: () {
+                      launchURL("https://drive.google.com/file/d/1ErA9nKDOSu1FcjxvYgI9CzksdX1NqZGC/view?usp=sharing");
+                    },
                     child: ListTile(
                       leading: const Icon(
                         Icons.book,
@@ -319,7 +325,6 @@ class SectionsBody extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(
-        // physics: !kIsWeb ? ScrollPhysics() : NeverScrollableScrollPhysics(),
         controller: scrollController,
         itemCount: sectionsLength,
         itemBuilder: (context, index) => sectionWidget(index),

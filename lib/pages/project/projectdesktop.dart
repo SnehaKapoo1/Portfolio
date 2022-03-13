@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/animations/widgetanimator.dart';
 import 'package:portfolio/utils/constants.dart';
 import 'package:portfolio/widget/carddesign.dart';
+import 'package:portfolio/widget/custombutton.dart';
 
 class ProjectDesktop extends StatefulWidget {
   const ProjectDesktop({Key? key}) : super(key: key);
@@ -80,14 +81,10 @@ class _ProjectDesktopState extends State<ProjectDesktop> {
           SizedBox(
             height: height * 0.02,
           ),
-         /* OutlinedButton(
-            onPressed: () {
-
-            },
-            child: const Text("See more", style: TextStyle(color: kButtonColor, fontWeight: FontWeight.bold),),
-          )*/
+         const CustomButton()
         ],
       ),
     );
   }
 }
+

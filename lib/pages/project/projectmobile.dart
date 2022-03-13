@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/utils/constants.dart';
 import 'package:portfolio/widget/carddesign.dart';
+import 'package:portfolio/widget/custombutton.dart';
 
 class ProjectMobile extends StatelessWidget {
   const ProjectMobile({Key? key}) : super(key: key);
@@ -62,7 +63,11 @@ class ProjectMobile extends StatelessWidget {
               autoPlayAnimationDuration: const Duration(milliseconds: 800),
               enableInfiniteScroll: true
           ),
-        )
+        ),
+        SizedBox(
+          height: height * 0.05,
+        ),
+        const CustomButton()
       ],
     );
   }

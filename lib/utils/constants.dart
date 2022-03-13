@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const Color kButtonColor = Color(0xffC0392B);
 const Color kCaptionColor = Color(0xff372424);
 const Color kBoldCaptionColor = Color(0xff000000);
 const Color kMobileRedColor = Color(0xffF44336);
+const Color kGreyBackground = Color(0xff607D8B);
 
 const kTechName = [
   'Flutter',
@@ -86,3 +88,6 @@ final kTools = [
   "HTML",
   "CSS",
 ];
+
+void launchURL(String _url) async =>
+    await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';

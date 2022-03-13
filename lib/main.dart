@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/pages/home/home.dart';
-import 'package:portfolio/pages/home/homedesktop.dart';
-import 'package:portfolio/pages/mainpage.dart';
-import 'package:portfolio/pages/pageview.dart';
 import 'package:portfolio/pages/scrolling.dart';
 
 void main() {

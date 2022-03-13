@@ -21,12 +21,7 @@ class TechWidget extends StatelessWidget {
               color: kButtonColor,
               size: MediaQuery.of(context).size.height * 0.02,
             ),
-            /*Image.asset(
-              '$techImage',
-              width: 20,
-              height: 30,
-              fit: BoxFit.cover,
-            ),*/
+
             AutoSizeText(
               '$techName',
               style: GoogleFonts.montserrat(

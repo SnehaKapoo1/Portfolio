@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/scrolling.dart';
+import 'package:portfolio/widget/loading.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       //title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.white),
-      home: const ScrollSection(),
+      home: const Loading(),
     );
   }
 }

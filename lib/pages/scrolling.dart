@@ -112,7 +112,7 @@ class _ScrollSectionState extends State<ScrollSection> {
                   color: kBoldCaptionColor,
                 ),
                 elevation: 0,
-                backgroundColor: Colors.blueGrey,
+                backgroundColor: kGreyBackground,
                 actions: [
                   AutoSizeText(
                     "SK-Portfolio",

@@ -42,7 +42,7 @@ class _ProjectDesktopState extends State<ProjectDesktop> {
                 decoration: TextDecoration.none),
           ),
           AutoSizeText(
-            "Here's are the sample of my projects:)\n\n",
+            "Here's are the sample of my projects :)\n\n",
             style: GoogleFonts.montserrat(
               fontWeight: FontWeight.w200,
               fontSize: 12.0,

@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:universal_html/html.dart' as html;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -9,7 +9,6 @@ import 'package:portfolio/animations/arrowontop.dart';
 import 'package:portfolio/animations/entrancefader.dart';
 import 'package:portfolio/pages/project/projectpage.dart';
 import 'package:portfolio/utils/constants.dart';
-
 import 'about/about.dart';
 import 'contacts/contact.dart';
 import 'footer/footer.dart';
@@ -267,7 +266,7 @@ class _ScrollSectionState extends State<ScrollSection> {
                       borderRadius: BorderRadius.circular(5.0),
                       side: BorderSide(color: kButtonColor.withAlpha(150))),
                   onPressed: () {
-                    //html.window.open("null", "pdf");
+                    html.window.open("https://drive.google.com/file/d/1ErA9nKDOSu1FcjxvYgI9CzksdX1NqZGC/view?usp=sharing", "pdf");
                   },
                   child: Text(
                     "RESUME",
@@ -309,7 +308,9 @@ class _ScrollSectionState extends State<ScrollSection> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(5.0),
                         side: const BorderSide(color: kButtonColor)),
-                    onPressed: () {},
+                    onPressed: () {
+                      launchURL("https://drive.google.com/file/d/1ErA9nKDOSu1FcjxvYgI9CzksdX1NqZGC/view?usp=sharing");
+                    },
                     child: ListTile(
                       leading: const Icon(
                         Icons.book,

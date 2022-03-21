@@ -19,23 +19,27 @@ class AboutMobile extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          AutoSizeText(
-            '\nAbout me!',
-            style: GoogleFonts.montserrat(
-                fontWeight: FontWeight.w200,
-                fontSize: 30.0,
-                color: kBoldCaptionColor,
-                letterSpacing: 1.0,
-                decoration: TextDecoration.none),
-          ),
-          AutoSizeText(
-            "Get to know me :)",
-            style: GoogleFonts.montserrat(
-                fontWeight: FontWeight.w200,
-                fontSize: 15.0,
-                color: kBoldCaptionColor,
-                letterSpacing: 1.0,
-                decoration: TextDecoration.none),
+         Center(
+           child:  AutoSizeText(
+             '\nAbout me!',
+             style: GoogleFonts.montserrat(
+                 fontWeight: FontWeight.w400,
+                 fontSize: 50.0,
+                 color: kBoldCaptionColor,
+                 letterSpacing: 1.0,
+                 decoration: TextDecoration.none),
+           ),
+         ),
+          Center(
+            child: AutoSizeText(
+              "Get to know me :)",
+              style: GoogleFonts.montserrat(
+                  fontWeight: FontWeight.w200,
+                  fontSize: 12.0,
+                  color: kBoldCaptionColor,
+                  letterSpacing: 1.0,
+                  decoration: TextDecoration.none),
+            ),
           ),
 
           Image.asset(

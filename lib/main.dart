@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/pages/scrolling.dart';
-import 'package:portfolio/widget/loading.dart';
 
 void main() {
   runApp(const MyApp());
